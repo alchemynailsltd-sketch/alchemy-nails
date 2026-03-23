@@ -33,7 +33,6 @@ body::before {
   background-size: 35px 35px;
   opacity: 0.15;
   animation: sparkle 15s linear infinite;
-  pointer-events: none;
 }
 
 @keyframes sparkle {
@@ -47,13 +46,8 @@ header {
   padding: 40px 20px;
 }
 
-.logo {
-  width: 300px;
-}
-
-.tagline {
-  color: var(--champagne);
-}
+.logo { width: 300px; }
+.tagline { color: var(--champagne); }
 
 .btn {
   display: block;
@@ -61,8 +55,8 @@ header {
   padding: 12px;
   border-radius: 30px;
   width: 200px;
-  text-align: center;
   background: #25D366;
+  text-align: center;
   color: white;
   text-decoration: none;
 }
@@ -76,10 +70,10 @@ header {
   border-radius: 20px;
 }
 
-/* GALLERY */
+/* 💅 GALLERY */
 .gallery {
   position: relative;
-  height: 520px;
+  height: 500px;
 }
 
 .gallery img {
@@ -89,21 +83,21 @@ header {
   border: 2px solid var(--champagne);
 }
 
+/* IMAGE POSITIONS */
 .gallery img:nth-child(1){width:150px;height:150px;top:0;left:10%;}
 .gallery img:nth-child(2){width:200px;height:200px;top:80px;left:45%;}
 .gallery img:nth-child(3){width:140px;height:140px;top:260px;left:15%;}
 .gallery img:nth-child(4){width:180px;height:180px;top:260px;left:60%;}
 .gallery img:nth-child(5){width:130px;height:130px;top:130px;left:75%;}
 
-/* 🦋 BUTTERFLY + SPARKLES */
+/* 🦋 BUTTERFLY BASE */
 .butterfly {
   position: absolute;
-  width: 60px;
-  border: none !important;
-  box-shadow: none !important;
-  animation: fly 12s linear infinite;
+  width: 50px;
+  pointer-events: none;
 }
 
+/* ✨ SPARKLE TRAIL */
 .butterfly::after {
   content: "";
   position: absolute;
@@ -114,175 +108,20 @@ header {
   box-shadow:
     0 0 8px white,
     10px 5px 10px rgba(255,255,255,0.8),
-    -10px 10px 12px rgba(232,172,151,0.7);
-  animation: sparkleTrail 1s infinite alternate;
+    -10px 10px 12px rgba(232,172,151,0.7),
+    15px -5px 15px rgba(206,179,171,0.8);
+  animation: sparkleFade 1.5s infinite;
 }
 
-@keyframes sparkleTrail {
-  0% { opacity: 0.3; }
-  100% { opacity: 1; }
+@keyframes sparkleFade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.5); }
 }
 
-@keyframes fly {
-  0% {top:20px; left:-10%;}
-  50% {top:200px; left:60%;}
-  100% {top:40px; left:110%;}
+/* 🦋 BUTTERFLY 1 PATH */
+.butterfly.one {
+  animation: flyOne 12s linear infinite;
 }
 
-/* 🎥 VIDEOS */
-.videos {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.videos video {
-  width: 200px;
-  border-radius: 20px;
-  border: 2px solid var(--champagne);
-}
-
-/* 💎 PRICE CARDS */
-.cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.card {
-  width: 220px;
-  padding: 20px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(10px);
-}
-
-.card .price {
-  color: var(--apricot);
-  font-size: 20px;
-}
-
-/* FORM */
-.contact-form {
-  padding: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  margin: 8px 0;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-}
-
-/* 📱 MOBILE FIX */
-@media (max-width: 768px) {
-
-  .logo { width: 200px; }
-
-  .gallery {
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .gallery img {
-    position: static;
-    width: 120px !important;
-    height: 120px !important;
-  }
-
-  .videos {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .videos video {
-    width: 90%;
-  }
-
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 90%;
-  }
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  color: var(--champagne);
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <img src="your-logo.png" class="logo">
-  <p class="tagline">Where beauty meets magic ✨</p>
-
-  <a href="https://api.whatsapp.com/send?phone=64210384740" class="btn">
-    Book Now
-  </a>
-</header>
-
-<section class="about">
-  <h2>About Me ✨</h2>
-  <p>Hi there! I’m the creative spirit behind Alchemy Nails. Nails are my little canvas where confidence, beauty, and magic come together ✨</p>
-</section>
-
-<section>
-  <h2 style="text-align:center;">Gallery</h2>
-  <div class="gallery">
-    <img src="nail1.jpg">
-    <img src="nail2.jpg">
-    <img src="nail3.jpg">
-    <img src="nail4.jpg">
-    <img src="nail5.jpg">
-    <img src="butterfly.png" class="butterfly">
-  </div>
-</section>
-
-<section>
-  <h2 style="text-align:center;">Watch the Magic 🎥</h2>
-  <div class="videos">
-    <video autoplay loop muted><source src="video1.mp4"></video>
-    <video autoplay loop muted><source src="video2.mp4"></video>
-    <video autoplay loop muted><source src="video3.mp4"></video>
-  </div>
-</section>
-
-<section>
-  <h2 style="text-align:center;">Services ✨</h2>
-  <div class="cards">
-    <div class="card"><h3>Gel X Set</h3><p class="price">$70</p></div>
-    <div class="card"><h3>Hard Gel</h3><p class="price">$65</p></div>
-    <div class="card"><h3>Overlay</h3><p class="price">$45</p></div>
-    <div class="card"><h3>Removal</h3><p class="price">$15</p></div>
-  </div>
-</section>
-
-<section class="contact-form">
-  <h2>Book Your Magic ✨</h2>
-  <form action="https://formspree.io/f/YOURCODE" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <button type="submit">Send ✨</button>
-  </form>
-</section>
-
-<footer>
-  © 2026 Alchemy Nails Limited
-</footer>
-
-</body>
-</html>
+@keyframes flyOne {
+  0% { top: 10px; left: -10%; }
