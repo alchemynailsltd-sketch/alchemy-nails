@@ -23,7 +23,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ✨ SPARKLES BACKGROUND */
+/* ✨ BACKGROUND SPARKLES */
 body::before {
   content: "";
   position: fixed;
@@ -89,55 +89,49 @@ header {
   border: 2px solid var(--champagne);
 }
 
-.gallery img:nth-child(1){width:250px;height:250px;top:0;left:20%;}
-.gallery img:nth-child(2){width:300px;height:300px;top:80px;left:45%;}
-.gallery img:nth-child(3){width:240px;height:240px;top:260px;left:15%;}
-.gallery img:nth-child(4){width:280px;height:280px;top:260px;left:60%;}
-.gallery img:nth-child(5){width:230px;height:230px;top:130px;left:75%;}
+.gallery img:nth-child(1){width:150px;height:150px;top:0;left:10%;}
+.gallery img:nth-child(2){width:200px;height:200px;top:80px;left:45%;}
+.gallery img:nth-child(3){width:140px;height:140px;top:260px;left:15%;}
+.gallery img:nth-child(4){width:180px;height:180px;top:260px;left:60%;}
+.gallery img:nth-child(5){width:130px;height:130px;top:130px;left:75%;}
 
-/* 🦋 BUTTERFLY CLEAN + SPARKLES */
+/* 🦋 BUTTERFLY + SPARKLES */
 .butterfly {
   position: absolute;
-  width: 150px;
+  width: 60px;
   border: none !important;
   box-shadow: none !important;
-  background: none !important;
-  z-index: 3;
   animation: fly 12s linear infinite;
 }
 
 .butterfly::after {
   content: "";
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 6px;
+  height: 6px;
   background: white;
   border-radius: 50%;
   box-shadow:
     0 0 8px white,
     10px 5px 10px rgba(255,255,255,0.8),
-    -10px 10px 12px rgba(232,172,151,0.7),
-    15px -5px 15px rgba(206,179,171,0.8);
+    -10px 10px 12px rgba(232,172,151,0.7);
   animation: sparkleTrail 1s infinite alternate;
 }
 
 @keyframes sparkleTrail {
-  0% { opacity: 0.3; transform: scale(0.8); }
-  100% { opacity: 1; transform: scale(1.2); }
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
 }
 
 @keyframes fly {
-  0%   { top: 20px; left: -10%; transform: scale(0.8); }
-  25%  { top: 80px; left: 30%; transform: scale(1); }
-  50%  { top: 200px; left: 60%; transform: scale(1.1); }
-  75%  { top: 120px; left: 85%; transform: scale(0.9); }
-  100% { top: 40px; left: 110%; transform: scale(0.8); }
+  0% {top:20px; left:-10%;}
+  50% {top:200px; left:60%;}
+  100% {top:40px; left:110%;}
 }
 
-/* VIDEOS */
+/* 🎥 VIDEOS */
 .videos {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   padding: 20px;
@@ -148,62 +142,26 @@ header {
   border-radius: 20px;
   border: 2px solid var(--champagne);
 }
-/* ✨ PRICE CARDS SECTION */
-.price-cards {
-  padding: 30px 20px;
-  text-align: center;
-}
 
-.price-cards h2 {
-  color: var(--champagne);
-  margin-bottom: 20px;
-}
-
-/* ✨ CARD GRID */
+/* 💎 PRICE CARDS */
 .cards {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* ✨ INDIVIDUAL CARD */
 .card {
   width: 220px;
   padding: 20px;
   border-radius: 20px;
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5),
-              0 0 10px rgba(206,179,171,0.3);
-  transition: 0.3s;
 }
 
-/* ✨ HOVER GLOW */
-.card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.7),
-              0 0 20px rgba(232,172,151,0.8);
-}
-
-/* ✨ PRICE TEXT */
 .card .price {
-  font-size: 22px;
   color: var(--apricot);
-  margin: 10px 0;
-}
-
-/* ✨ FEATURED CARD (highlight your main service) */
-.featured {
-  border: 1px solid var(--apricot);
-  box-shadow: 0 0 25px rgba(232,172,151,0.7);
-}
-
-/* ✨ NOTE TEXT */
-.note {
-  margin-top: 20px;
-  font-size: 13px;
-  color: var(--champagne);
+  font-size: 20px;
 }
 
 /* FORM */
@@ -220,16 +178,44 @@ header {
   border: none;
 }
 
-.contact-form button {
-  width: 100%;
-  padding: 12px;
-  border-radius: 25px;
-  background: var(--apricot);
-  color: white;
-  border: none;
+/* 📱 MOBILE FIX */
+@media (max-width: 768px) {
+
+  .logo { width: 200px; }
+
+  .gallery {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .gallery img {
+    position: static;
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .videos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .videos video {
+    width: 90%;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
 }
 
-/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
@@ -249,97 +235,48 @@ footer {
   </a>
 </header>
 
-<!-- ABOUT -->
 <section class="about">
-  <h2>About Me </h2>
-  <p>Hi there! I’m the creative spirit behind Alchemy Nails. For me, nails are a form of self-expression, a tiny canvas where confidence, art, and magic come together. Every set I create is inspired by love, creativity, and a little bit of sparkle. I can’t wait to be part of your self-care journey!</p>
+  <h2>About Me ✨</h2>
+  <p>Hi there! I’m the creative spirit behind Alchemy Nails. Nails are my little canvas where confidence, beauty, and magic come together ✨</p>
 </section>
 
-<!-- GALLERY -->
 <section>
   <h2 style="text-align:center;">Gallery</h2>
-
   <div class="gallery">
     <img src="nail1.jpg">
     <img src="nail2.jpg">
     <img src="nail3.jpg">
     <img src="nail4.jpg">
     <img src="nail5.jpg">
-
     <img src="butterfly.png" class="butterfly">
   </div>
 </section>
 
-<!-- VIDEOS -->
 <section>
-  <h2 style="text-align:center;">Watch the Magic </h2>
-
+  <h2 style="text-align:center;">Watch the Magic 🎥</h2>
   <div class="videos">
-    <video autoplay loop muted>
-      <source src="video1.mp4" type="video/mp4">
-    </video>
-
-    <video autoplay loop muted>
-      <source src="video2.mp4" type="video/mp4">
-    </video>
-
-    <video autoplay loop muted>
-      <source src="video3.mp4" type="video/mp4">
-    </video>
+    <video autoplay loop muted><source src="video1.mp4"></video>
+    <video autoplay loop muted><source src="video2.mp4"></video>
+    <video autoplay loop muted><source src="video3.mp4"></video>
   </div>
 </section>
-<!-- ✨ LUXURY PRICE CARDS -->
-<section class="price-cards">
-  <h2>Services ✨</h2>
 
+<section>
+  <h2 style="text-align:center;">Services ✨</h2>
   <div class="cards">
-
-    <div class="card featured">
-      <h3>Gel X Set ✨</h3>
-      <p class="price">$70</p>
-      <p>Lightweight extensions with a flawless finish</p>
-    </div>
-
-    <div class="card">
-      <h3>Hard Gel Set</h3>
-      <p class="price">$65</p>
-      <p>Strong, durable sculpted nails</p>
-    </div>
-
-    <div class="card">
-      <h3>Gel Overlay</h3>
-      <p class="price">$45</p>
-      <p>Enhance your natural nails with shine</p>
-    </div>
-
-    <div class="card">
-      <h3>Removal</h3>
-      <p class="price">$15</p>
-      <p>Safe and gentle removal process</p>
-    </div>
-
+    <div class="card"><h3>Gel X Set</h3><p class="price">$70</p></div>
+    <div class="card"><h3>Hard Gel</h3><p class="price">$65</p></div>
+    <div class="card"><h3>Overlay</h3><p class="price">$45</p></div>
+    <div class="card"><h3>Removal</h3><p class="price">$15</p></div>
   </div>
-
-  <p class="note">✨ Basic nail art included | Advanced designs: +$10–$20</p>
 </section>
 
-<!-- CONTACT -->
 <section class="contact-form">
   <h2>Book Your Magic ✨</h2>
-
-  <form action="https://formspree.io/f/mreywqoz" method="POST">
-
-    <input type="hidden" name="_next" value="https://api.whatsapp.com/send?phone=64210384740&text=Hi%20I%20just%20submitted%20a%20booking%20request%20✨">
-    <input type="hidden" name="_captcha" value="false">
-
+  <form action="https://formspree.io/f/YOURCODE" method="POST">
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
-    <input type="text" name="service" placeholder="What would you like?" required>
-    <input type="date" name="date" required>
-    <textarea name="message" placeholder="Describe your dream set ✨"></textarea>
-
-    <button type="submit">Send Your Magic ✨</button>
-
+    <button type="submit">Send ✨</button>
   </form>
 </section>
 
